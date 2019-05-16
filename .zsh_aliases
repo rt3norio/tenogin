@@ -1,0 +1,3 @@
+alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
+alias dcd="docker-compose down --remove-orphans"
+alias dcu="docker-compose up -d"
