@@ -1,6 +1,6 @@
-#linux config!
+# linux config!
 
-###Configuração
+### Configuração
 
 no arquivo ~/.zshrc
 - inserir: source ~/linux-config/.zshrc
