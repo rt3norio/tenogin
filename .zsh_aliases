@@ -1,3 +1,8 @@
 alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
 alias dcd="docker-compose down --remove-orphans"
 alias dcu="docker-compose up -d"
+alias dpbm="docker exec -it php-pbm bash"
+alias dtt="docker exec -it php-tradetools bash"
+alias dcdu="dcd && dcu"
+alias redisflush="docker exec -it redis redis-cli flushall"
+alias pgsql="docker exec -it postgres psql -U webadm"
