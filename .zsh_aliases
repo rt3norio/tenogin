@@ -7,3 +7,12 @@ alias dcdu="dcd && dcu"
 alias redisflush="docker exec -it redis redis-cli flushall"
 alias pgsql="docker exec -it postgres psql -U webadm"
 alias ttworker="docker exec -i php-tradetools ./protected/yiic worker umTrabalho"
+alias ttyiic="docker exec -i php-tradetools ./protected/yiic"
+alias aliases="vim ~/linux-config/.zsh_aliases"
+alias tt="cd ~/projetos/tradetools"
+
+deb() {
+  echo "running: docker exec -it "$1" bash\n"
+  docker exec -it "$1" bash
+}
+
