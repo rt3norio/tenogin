@@ -16,3 +16,6 @@ deb() {
   docker exec -it "$1" bash
 }
 
+dips() {
+  docker ps -q | xargs -n 1 docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} {{ .Name }}' | sed 's/ \// /'
+}
