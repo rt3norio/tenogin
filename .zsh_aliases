@@ -23,13 +23,29 @@ horizon(){
   docker-compose exec php php artisan horizon
 }
 
+gitlogtestes(){
+git diff --stat origin/master..origin/"$(git branch | grep \* | cut -d ' ' -f2)" --no-merges protected/tests
+}
 
+gitlogtudo(){
+git diff --stat origin/master..origin/"$(git branch | grep \* | cut -d ' ' -f2)" --no-merges
+}
 
 deb() {
   echo "running: docker exec -it "$1" bash\n"
   docker exec -it "$1" bash
 }
 
+dce(){
+  docker-compose exec php bash
+}
+
+
 dips() {
   docker ps -q | xargs -n 1 docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} {{ .Name }}' | sed 's/ \// /'
+}
+
+deleteBranch(){
+	git branch -D $1
+	git push origin -- delete $1
 }
