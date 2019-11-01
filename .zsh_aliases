@@ -11,6 +11,7 @@ alias ttyiic="docker exec -i php-tradetools ./protected/yiic"
 alias aliases="vim ~/linux-config/.zsh_aliases"
 alias tt="cd ~/projetos/tradetools"
 alias i3conf="vim ~/.config/i3/config"
+alias mata-tudo='echo "--- parando as imagens Docker em execução ---";docker kill $(docker ps -q);docker rm $(docker ps -a -q)'
 
 ##Estatisticas dos comandos mais utilizados
 hstatistics(){
