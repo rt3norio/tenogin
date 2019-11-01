@@ -13,7 +13,10 @@ alias tt="cd ~/projetos/tradetools"
 alias i3conf="vim ~/.config/i3/config"
 
 ##Estatisticas dos comandos mais utilizados
-alias hstatistics="history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20"
+hstatistics(){
+  history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20;
+}
+
 
 ##CD + pasta projetos com autocomplete
 cdp() { cd ~/projetos/$1; }
