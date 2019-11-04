@@ -53,3 +53,8 @@ deleteBranch(){
 	git branch -D $1
 	git push origin -- delete $1
 }
+
+ttTest() {
+	~/projetos/tradetools/protected/data/recria_bases_paralelo.sh;
+	docker exec -it php-tradetools bash -c 'find protected/tests/ -name "*Test.php" | vendor/bin/fastest "vendor/bin/phpunit {}"'
+}
