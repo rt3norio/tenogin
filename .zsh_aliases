@@ -53,3 +53,10 @@ deleteBranch(){
 	git branch -D $1
 	git push origin -- delete $1
 }
+
+meavise(){
+    start=$(date +%s)
+    "$@"
+    [ $(($(date +%s) - start)) -le 5 ] || notify-send "Notification" "Long\
+ running command \"$(echo $@)\" took $(($(date +%s) - start)) seconds to finish"
+}
