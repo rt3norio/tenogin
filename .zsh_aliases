@@ -33,7 +33,14 @@ horizon(){
 }
 
 gitlogtestes(){
-	git diff  "$(git describe --abbrev=0 --tags)"..origin/"$(git branch | grep \* | cut -d ' ' -f2)" --no-merges protected/tests
+	ultimaRelease=`git describe --abbrev=0 --tags`
+	branchAtual=`git branch | grep \* | cut -d ' ' -f2`
+	intervalo=$ultimaRelease..origin/$branchAtual
+	pastaTestes=protected/tests
+	
+	echo Changes between $intervalo "in $pastaTestes/*"
+	echo
+	git diff --stat $intervalo $pastaTestes
 }
 
 gitlogtudo(){
