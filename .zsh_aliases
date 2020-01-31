@@ -12,7 +12,9 @@ alias aliases="vim ~/linux-config/.zsh_aliases"
 alias tt="cd ~/projetos/tradetools"
 alias i3conf="vim ~/.config/i3/config"
 alias mata-tudo='echo "--- parando as imagens Docker em execução ---";docker kill $(docker ps -q);docker rm $(docker ps -a -q)'
+alias wireless-config="nmtui"
 alias mysqli='docker exec -it mysql mysql -U webadm --password="A123456"'
+
 ##Estatisticas dos comandos mais utilizados
 hstatistics(){
   echo "Estatistica para dois comandos"
@@ -55,6 +57,11 @@ dips() {
 deleteBranch(){
 	git branch -D $1
 	git push origin --delete $1
+}
+
+ttTest() {
+	~/projetos/tradetools/protected/data/recria_bases_paralelo.sh;
+	docker exec -it php-tradetools bash -c 'find protected/tests/ -name "*Test.php" | vendor/bin/fastest "vendor/bin/phpunit {}"'
 }
 
 meavise(){
