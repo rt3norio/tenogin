@@ -16,7 +16,7 @@ alias wireless-config="nmtui"
 alias mysqli='docker exec -it mysql mysql -U webadm --password="A123456"'
 
 ##Estatisticas dos comandos mais utilizados
-hstatistics(){
+hstatistics() {
   echo "Estatistica para dois comandos"
   history | awk '{CMD[$2"_"$3]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20;
   echo "estatistica para um comando"
@@ -28,11 +28,11 @@ hstatistics(){
 cdp() { cd ~/projetos/$1; }
 compctl -W ~/projetos/ -/ cdp
 
-horizon(){
-  docker-compose exec php php artisan horizon
+horizon() {
+	docker-compose exec php php artisan horizon
 }
 
-gitlogtestes(){
+gitLogTestes(){
 	ultimaRelease=`git describe --abbrev=0 --tags`
 	branchAtual=`git branch | grep \* | cut -d ' ' -f2`
 	intervalo=$ultimaRelease..origin/$branchAtual
@@ -43,25 +43,25 @@ gitlogtestes(){
 	git diff --stat $intervalo $pastaTestes
 }
 
-gitlogtudo(){
-git diff --stat origin/master..origin/"$(git branch | grep \* | cut -d ' ' -f2)" --no-merges
+gitLogTudo() {
+	git diff --stat origin/master..origin/"$(git branch | grep \* | cut -d ' ' -f2)" --no-merges
 }
 
 deb() {
-  echo "running: docker exec -it "$1" bash\n"
-  docker exec -it "$1" bash
+	echo "running: docker exec -it "$1" bash\n"
+	docker exec -it "$1" bash
 }
 
-dce(){
-  docker-compose exec php bash
+dce() {
+	docker-compose exec php bash
 }
 
 
 dips() {
-  docker ps -q | xargs -n 1 docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} {{ .Name }}' | sed 's/ \// /' | grep "$1"
+	docker ps -q | xargs -n 1 docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} {{ .Name }}' | sed 's/ \// /' | grep "$1"
 }
 
-deleteBranch(){
+deleteBranch() {
 	git branch -D $1
 	git push origin --delete $1
 }
@@ -71,11 +71,11 @@ ttTest() {
 	docker exec -it php-tradetools bash -c 'find protected/tests/ -name "*Test.php" | vendor/bin/fastest "vendor/bin/phpunit {}"'
 }
 
-meavise(){
-    start=$(date +%s)
-    "$@"
-    [ $(($(date +%s) - start)) -le 5 ] || notify-send "Notification" "Long\
- running command \"$(echo $@)\" took $(($(date +%s) - start)) seconds to finish"
+meAvise() {
+	start=$(date +%s)
+	"$@"
+	[ $(($(date +%s) - start)) -le 5 ] || notify-send "Notification" "Long\
+	running command \"$(echo $@)\" took $(($(date +%s) - start)) seconds to finish"
 }
 
 transfer(){
@@ -83,3 +83,4 @@ transfer(){
 	git pull origin $1
 	git push oficial $1
 }
+
