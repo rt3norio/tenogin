@@ -14,7 +14,9 @@ alias i3conf="vim ~/.config/i3/config"
 alias mata-tudo='echo "--- parando as imagens Docker em execução ---";docker kill $(docker ps -q);docker rm $(docker ps -a -q)'
 alias wireless-config="nmtui"
 alias mysqli='docker exec -it mysql mysql -U webadm --password="A123456"'
-
+alias testesTradetools='tt && ./protected/data/recria_bases_paralelo.sh rt -vv'
+alias umTesteTradetools="docker exec -it php-tradetools ./vendor/bin/phpunit "
+alias tudomeu="sudo chown $UID:$GID * -R"
 ##Estatisticas dos comandos mais utilizados
 hstatistics(){
   echo "Estatistica para dois comandos"
@@ -76,3 +78,5 @@ transfer(){
 	git pull origin $1
 	git push oficial $1
 }
+
+alias py="python3"
