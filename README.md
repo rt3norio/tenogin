@@ -1,8 +1,9 @@
-# linux config!
+# Tenogin, Tenorio Plugin! para o zsh.
 
 ### Configuração
-na home:
-- git clone $EsteRepositorio
+git clone https://github.com/rt3norio/tenogin .oh-my-zsh/plugins/tenogin
 
-no arquivo ~/.zshrc
-- inserir: source ~/linux-config/.zshrc
+adicionar no seu .zshrc plugins array 'tenogin'
+
+ser feliz.
+
